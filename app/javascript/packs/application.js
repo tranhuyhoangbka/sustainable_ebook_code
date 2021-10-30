@@ -10,4 +10,12 @@ import "channels"
 
 Rails.start()
 Turbolinks.start()
+
+document.addEventListener("DOMContentLoaded", () => {
+  Turbolinks.setProgressBarDelay(100)
+})
+
 ActiveStorage.start()
+
+import widget_ratings from "widget_ratings"
+widget_ratings.start(window)

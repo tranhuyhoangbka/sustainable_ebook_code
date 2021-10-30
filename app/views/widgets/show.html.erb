@@ -1,0 +1,13 @@
+<header class="widget-title">
+  <h1 class="widget-title__name"><%= @widget.name %></h1>
+  <h2 class="widget-title__id">ID #<%= @widget.styled_widget_id %></h2>
+</header>
+<% if flash[:notice].present? %>
+  <aside><%= flash[:notice] %></aside>
+<% end %>
+
+<h3>
+  Built by <%= @widget.manufacturer.name %>
+  out of <%= @widget.manufacturer.address.country %>
+</h3>
+<%= widget_rating_component(@widget) %>
