@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "[bin/psql] connecting to widgets_development"
+PGPASSWORD=Hoang123 psql -U huyhoang -h localhost widgets_development

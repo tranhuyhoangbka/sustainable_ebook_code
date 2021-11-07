@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+echo "[bin/db-rollback] rollback development schema"
+bin/rails db:rollback
+
+echo "[bin/db-rollback] rollback test schema"
+bin/rails db:rollback RAILS_ENV=test

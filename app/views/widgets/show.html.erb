@@ -1,13 +1,30 @@
-<header class="widget-title">
-  <h1 class="widget-title__name"><%= @widget.name %></h1>
-  <h2 class="widget-title__id">ID #<%= @widget.styled_widget_id %></h2>
-</header>
-<% if flash[:notice].present? %>
-  <aside><%= flash[:notice] %></aside>
-<% end %>
+<p id="notice"><%= notice %></p>
 
-<h3>
-  Built by <%= @widget.manufacturer.name %>
-  out of <%= @widget.manufacturer.address.country %>
-</h3>
-<%= widget_rating_component(@widget) %>
+<h1>Widget Information</h1>
+<h2 data-testid="widget-name"><%= @widget.name %></h2>
+<h2>
+  ID #<%= styled_widget_id(@widget.user_facing_identifier) %>
+</h2>
+
+<p>
+  <strong>Name:</strong>
+  <%= @widget.name %>
+</p>
+
+<p>
+  <strong>Price cents:</strong>
+  <%= @widget.price_cents %>
+</p>
+
+<p>
+  <strong>Widget status:</strong>
+  <%= @widget.widget_status_id %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @widget.manufacturer_id %>
+</p>
+
+<%= link_to 'Edit', edit_widget_path(@widget) %> |
+<%= link_to 'Back', widgets_path %>
