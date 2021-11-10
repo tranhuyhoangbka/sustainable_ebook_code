@@ -1,3 +1,7 @@
-Finance#high_priced_widget
+A new high-priced widget has been created!
 
-<%= @widget.name %>, find me in app/views/finance_mailer/high_priced_widget.text.erb
+<%= @widget.name %>
+
+by <%= @widget.manufacturer.name %>
+
+Price: <%= number_to_currency(@widget.price_cents / 100) %>

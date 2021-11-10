@@ -13,6 +13,13 @@ Rails.application.routes.draw do
     resources :design_system_docs, only: :index
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :widgets, only: [:show]
+      resources :widget_datasheets
+    end
+  end
+
 
   ####
   # Custom routes start here

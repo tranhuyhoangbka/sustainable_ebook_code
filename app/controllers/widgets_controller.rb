@@ -3,6 +3,7 @@ class WidgetsController < ApplicationController
 
   # GET /widgets or /widgets.json
   def index
+    logger.info("testing.........")
     @widgets = Widget.all
   end
 

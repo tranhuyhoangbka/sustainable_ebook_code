@@ -1,4 +1,8 @@
+require 'logging/logs'
+
 class WidgetCreator
+  include Logging::Logs
+
   def initialize(notifier: nil)
     @notifier = notifier
   end
@@ -7,6 +11,7 @@ class WidgetCreator
     widget.widget_status = WidgetStatus.find_by!(name: "Fresh")
     widget.save
     return Result.new(created: false, widget: widget) if widget.invalid?
+    log "created"
     HighPricedWidgetCheckJob.perform_async(widget.id, widget.price_cents)
     WidgetFromNewManufacturerCheckJob.perform_async(widget.id, widget.manufacturer.created_at)
     Result.new(created: widget.valid?, widget: widget)

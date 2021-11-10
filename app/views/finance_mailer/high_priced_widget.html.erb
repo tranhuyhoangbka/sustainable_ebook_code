@@ -1,5 +1,36 @@
-<h1>Finance#high_priced_widget</h1>
-
-<p>
-  <%= @widget.name %>, find me in app/views/finance_mailer/high_priced_widget.html.erb
-</p>
+<article style="padding: 0.5rem; font-family: helvetica, sans-serif">
+<table style="width: 100%;">
+  <tr>
+    <td colspan="2" style="border-bottom: solid thin black;">
+      <p style="padding-left: 0.25rem;">
+        A new high-priced widget has been created!
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 0.5rem;">
+      &nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div style="font-size: 2.8rem; margin-bottom: 0.5rem;">
+        <%= @widget.name %>
+        <span style="font-size: 2.2rem">
+          #<%= styled_widget_id(@widget.user_facing_identifier) %>
+        </span>
+      </div>
+      <div style="font-size: 1.3rem;">
+        <%= @widget.manufacturer.name %>
+      </div>
+    </td>
+    <td style="vertical-align: top; text-align: right">
+      <div style="font-size: 2.8rem;
+      margin-bottom: 0.25rem;
+      font-weight: bold">
+      <%= number_to_currency(@widget.price_cents / 100) %>
+    </div>
+  </td>
+</tr>
+</table>
+</article>
